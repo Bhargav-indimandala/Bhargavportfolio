@@ -1,508 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhargav Indimandala - Interactive Developer Journey</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhargav Indimandala — Software Developer</title>
+<meta name="description" content="Bhargav Indimandala — B.Tech CSE student, Flask &amp; Android developer. Projects, skills, and resume.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-text">Initializing Developer...</div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
+
+<!-- Boot sequence: brief, skippable, never blocks content for more than ~1.2s -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-line"><span class="boot-prompt">$</span> whoami</div>
+  <div class="boot-line boot-out">bhargav-indimandala</div>
+  <div class="boot-line"><span class="boot-prompt">$</span> ./load_portfolio.sh</div>
+  <div class="boot-line boot-out">done<span class="boot-cursor">_</span></div>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a href="#hero" class="brand">bhargav<span class="brand-dot">.</span>dev</a>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" target="_blank" class="nav-resume">Resume ↗</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" target="_blank">Resume ↗</a>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">// B.Tech CSE · Parul University</p>
+        <h1>Bhargav Indimandala</h1>
+        <p class="hero-lede">
+          Software developer who builds working backends, not just demos —
+          OTP-based auth flows, e-learning platforms, and offline-first Android apps.
+          Currently 8.71 CGPA, top 1% in Intermediate.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View projects</a>
+          <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" target="_blank" class="btn btn-ghost">Download resume</a>
         </div>
+        <div class="hero-meta">
+          <a href="https://github.com/Bhargav-indimandala" target="_blank" rel="noopener">GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://linkedin.com/in/bhargav-indimandala-9718b0324" target="_blank" rel="noopener">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href="mailto:bhargavchowdhary18@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-hidden="true">
+        <div class="term">
+          <div class="term-bar">
+            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            <span class="term-title">about.json</span>
+          </div>
+          <pre class="term-body"><code><span class="tk-brace">{</span>
+  <span class="tk-key">"name"</span>: <span class="tk-str">"Bhargav Indimandala"</span>,
+  <span class="tk-key">"role"</span>: <span class="tk-str">"Software Developer"</span>,
+  <span class="tk-key">"based_in"</span>: <span class="tk-str">"Hyderabad, Telangana"</span>,
+  <span class="tk-key">"cgpa"</span>: <span class="tk-num">8.71</span>,
+  <span class="tk-key">"languages"</span>: [<span class="tk-str">"Java"</span>, <span class="tk-str">"Python"</span>, <span class="tk-str">"C"</span>, <span class="tk-str">"JavaScript"</span>],
+  <span class="tk-key">"open_to"</span>: <span class="tk-str">"internships & junior dev roles"</span>
+<span class="tk-brace">}</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-head">
+      <p class="eyebrow">// projects</p>
+      <h2>Things I've shipped</h2>
     </div>
 
-    <!-- Terminal Intro -->
-    <div class="terminal-intro" id="terminalIntro">
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot dot-red"></div>
-                <div class="terminal-dot dot-yellow"></div>
-                <div class="terminal-dot dot-green"></div>
-                <span class="terminal-title">bhargav@developer:~$</span>
-            </div>
-            <div class="terminal-body">
-                <div class="terminal-line"><span class="prompt">whoami</span></div>
-                <div class="terminal-line">Bhargav Indimandala</div>
-                <div class="terminal-line"><span class="prompt">cat skills.txt</span></div>
-                <div class="terminal-line">Java | Python | C | Android Development</div>
-                <div class="terminal-line"><span class="prompt">ls achievements/</span></div>
-                <div class="terminal-line">intermediate_score_983.txt  projects/  learning_journey/</div>
-                <div class="terminal-line"><span class="prompt">./launch_portfolio.sh</span></div>
-                <div class="terminal-line">Launching interactive portfolio...</div>
-                <div class="terminal-line">Ready! Press ENTER to continue</div>
-            </div>
+    <div class="project-grid">
+
+      <article class="project-card featured">
+        <div class="project-top">
+          <h3>VerifyED</h3>
+          <span class="status status-done">Completed</span>
         </div>
+        <p class="project-desc">A student verification system with OTP-based email authentication, a secure login flow, and dynamic dashboards for managing verified records.</p>
+        <ul class="project-points">
+          <li>OTP-based authentication with email verification via SMTP</li>
+          <li>Login system with server-side validation</li>
+          <li>Dynamic, role-aware dashboards</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Flask</span><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">SMTP</span>
+        </div>
+        <a href="https://github.com/Bhargav-indimandala" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </article>
+
+      <article class="project-card featured">
+        <div class="project-top">
+          <h3>LearnSphere</h3>
+          <span class="status status-done">Completed</span>
+        </div>
+        <p class="project-desc">An e-learning platform with a structured course catalog, a responsive UI, and content that renders dynamically per course via Flask.</p>
+        <ul class="project-points">
+          <li>Structured course platform with responsive layout</li>
+          <li>Dynamic content rendering driven by Flask routes</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Flask</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/Bhargav-indimandala" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>InvenEase</h3>
+          <span class="status status-progress">In progress</span>
+        </div>
+        <p class="project-desc">An Android inventory management app for small businesses, with full CRUD operations backed by offline-first SQLite storage.</p>
+        <ul class="project-points">
+          <li>CRUD operations with offline local storage</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Java</span><span class="tag">Android</span><span class="tag">SQLite</span>
+        </div>
+        <a href="https://github.com/Bhargav-indimandala/InvenEase" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Student Record System</h3>
+          <span class="status status-done">Completed</span>
+        </div>
+        <p class="project-desc">A console-based C application for managing student records, using file handling for persistent, file-based CRUD operations.</p>
+        <ul class="project-points">
+          <li>File-based CRUD with structured data handling</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">C</span><span class="tag">File I/O</span><span class="tag">Data Structures</span>
+        </div>
+        <a href="https://github.com/Bhargav-indimandala/student-record-management-system" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>This Portfolio</h3>
+          <span class="status status-done">Completed</span>
+        </div>
+        <p class="project-desc">A responsive personal portfolio built from scratch with hand-written HTML, CSS, and JavaScript — no frameworks.</p>
+        <ul class="project-points">
+          <li>Fully responsive across mobile, tablet, and desktop</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/Bhargav-indimandala" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-head">
+      <p class="eyebrow">// skills</p>
+      <h2>What I work with</h2>
     </div>
 
-    <!-- Floating Navigation -->
-    <nav class="floating-nav">
-        <div class="nav-orb active" data-section="hero" title="Home">🏠</div>
-        <div class="nav-orb" data-section="about" title="About">👨‍💻</div>
-        <div class="nav-orb" data-section="skills" title="Skills">⚡</div>
-        <div class="nav-orb" data-section="journey" title="Journey">🚀</div>
-        <div class="nav-orb" data-section="projects" title="Projects">💼</div>
-        <div class="nav-orb" data-section="resume" title="Resume">📄</div>
-        <div class="nav-orb" data-section="contact" title="Contact">📧</div>
-    </nav>
-
-    <!-- Background Particles -->
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- Main Content Container -->
-    <div class="section-container">
-        
-        <!-- Hero Section - Interactive Code Animation -->
-        <section class="section active" id="hero">
-            <div class="hero-content">
-                <div class="code-editor">
-                    <div class="code-header">
-                        <span class="code-lang">Developer.java</span>
-                        <div class="code-dots">
-                            <span></span><span></span><span></span>
-                        </div>
-                    </div>
-                    <div class="code-body">
-                        <div class="code-line">
-                            <span class="line-num">1</span>
-                            <span class="code-text"><span class="keyword">public class</span> <span class="class-name">BhargavIndimandala</span> {</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">2</span>
-                            <span class="code-text">    <span class="keyword">String</span> location = <span class="string">"Khammam, Telangana"</span>;</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">3</span>
-                            <span class="code-text">    <span class="keyword">String</span> passion = <span class="string">"Software Development"</span>;</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">4</span>
-                            <span class="code-text">    <span class="keyword">double</span> intermediateScore = <span class="number">98.3</span>;</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">5</span>
-                            <span class="code-text">    </span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">6</span>
-                            <span class="code-text">    <span class="keyword">public void</span> <span class="method">introduce</span>() {</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">7</span>
-                            <span class="code-text">        System.out.println(<span class="string typing-text">"Building the future, one line at a time..."</span>);</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">8</span>
-                            <span class="code-text">    }</span>
-                        </div>
-                        <div class="code-line">
-                            <span class="line-num">9</span>
-                            <span class="code-text">}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-info">
-                    <h1 class="glitch" data-text="BHARGAV INDIMANDALA">BHARGAV INDIMANDALA</h1>
-                    <p class="hero-subtitle">Aspiring Software Developer</p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="983">0</div>
-                            <div class="stat-label">Intermediate Score</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="5">0</div>
-                            <div class="stat-label">Languages</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="3">0</div>
-                            <div class="stat-label">Projects</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section - Interactive Timeline -->
-        <section class="section" id="about">
-            <div class="about-container">
-                <div class="section-title">
-                    <h2 class="neon-text">ABOUT_ME.exe</h2>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item" data-year="2022">
-                        <div class="timeline-content">
-                            <h3>🎓 Started Intermediate</h3>
-                            <p>Began my journey at Sri C.V. Raman Junior College, setting high academic goals.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-year="2024">
-                        <div class="timeline-content">
-                            <h3>🏆 Academic Excellence</h3>
-                            <p>Achieved 983/1000 marks in Intermediate, demonstrating dedication to learning.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-year="2024">
-                        <div class="timeline-content">
-                            <h3>💻 Programming Journey</h3>
-                            <p>Dove deep into C, Java, Python, and Android development through self-learning.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-year="2025">
-                        <div class="timeline-content">
-                            <h3>🚀 Building Projects</h3>
-                            <p>Creating real-world applications like InvenEase and management systems.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section - Interactive Skill Tree -->
-        <section class="section" id="skills">
-            <div class="skills-container">
-                <div class="section-title">
-                    <h2 class="neon-text">SKILL_TREE.json</h2>
-                </div>
-                <div class="skill-tree">
-                    <div class="skill-node core" data-skill="core">
-                        <div class="skill-icon">🧠</div>
-                        <span>Core Logic</span>
-                    </div>
-                    <div class="skill-branch">
-                        <div class="skill-node" data-skill="c">
-                            <div class="skill-icon">⚙️</div>
-                            <span>C Programming</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-node" data-skill="java">
-                            <div class="skill-icon">☕</div>
-                            <span>Java</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-node" data-skill="python">
-                            <div class="skill-icon">🐍</div>
-                            <span>Python</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-node" data-skill="web">
-                            <div class="skill-icon">🌐</div>
-                            <span>Web Tech</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-node" data-skill="android">
-                            <div class="skill-icon">📱</div>
-                            <span>Android</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="70"></div>
-                            </div>
-                        </div>
-                        <div class="skill-node" data-skill="db">
-                            <div class="skill-icon">🗄️</div>
-                            <span>Databases</span>
-                            <div class="skill-level">
-                                <div class="level-bar" data-level="65"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Journey Section - Game-like Progress -->
-        <section class="section" id="journey">
-            <div class="journey-container">
-                <div class="section-title">
-                    <h2 class="neon-text">LEARNING_JOURNEY.log</h2>
-                </div>
-                <div class="achievement-board">
-                    <div class="achievement unlocked">
-                        <div class="achievement-icon">🎓</div>
-                        <div class="achievement-info">
-                            <h3>Academic Achiever</h3>
-                            <p>Scored 983/1000 in Intermediate</p>
-                        </div>
-                    </div>
-                    <div class="achievement unlocked">
-                        <div class="achievement-icon">💻</div>
-                        <div class="achievement-info">
-                            <h3>First Hello World</h3>
-                            <p>Started programming journey</p>
-                        </div>
-                    </div>
-                    <div class="achievement unlocked">
-                        <div class="achievement-icon">📱</div>
-                        <div class="achievement-info">
-                            <h3>App Developer</h3>
-                            <p>Built first Android application</p>
-                        </div>
-                    </div>
-                    <div class="achievement locked">
-                        <div class="achievement-icon">🏢</div>
-                        <div class="achievement-info">
-                            <h3>First Job</h3>
-                            <p>Ready to join a great team!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section - 3D Card Gallery -->
-        <section class="section" id="projects">
-            <div class="projects-container">
-                <div class="section-title">
-                    <h2 class="neon-text">PROJECT_SHOWCASE.exe</h2>
-                </div>
-                <div class="project-gallery">
-                    <div class="project-card" data-tilt>
-                        <div class="project-header">
-                            <div class="project-icon">📱</div>
-                            <div class="project-status">🔄 Ongoing</div>
-                        </div>
-                        <div class="project-body">
-                            <h3>InvenEase</h3>
-                            <p>Android inventory management app with SQLite integration for small businesses.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Android Studio</span>
-                                <span class="tech-tag">SQLite</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/Bhargav-indimandala/InvenEase" class="project-link" target="_blank">
-                                <span>View Code</span>
-                                <div class="link-arrow">→</div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-tilt>
-                        <div class="project-header">
-                            <div class="project-icon">💾</div>
-                            <div class="project-status">✅ Completed</div>
-                        </div>
-                        <div class="project-body">
-                            <h3>Student Record System</h3>
-                            <p>Console-based C application with file handling for student data management.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">C Programming</span>
-                                <span class="tech-tag">File I/O</span>
-                                <span class="tech-tag">Data Structures</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/Bhargav-indimandala/student-record-management-system" class="project-link" target="_blank">
-                                <span>View Code</span>
-                                <div class="link-arrow">→</div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-tilt>
-                        <div class="project-header">
-                            <div class="project-icon">🌐</div>
-                            <div class="project-status">🎨 Interactive</div>
-                        </div>
-                        <div class="project-body">
-                            <h3>Interactive Portfolio</h3>
-                            <p>This unique portfolio with custom animations, particle effects, and modern design.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="#" class="project-link" target="_blank">
-                                <span>Live Site</span>
-                                <div class="link-arrow">→</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Resume Section -->
-<section class="section" id="resume">
-    <div class="resume-container">
-        <div class="section-title">
-            <h2 class="neon-text">RESUME_DOWNLOAD.pdf</h2>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tag-row">
+          <span class="tag tag-lg">Java</span>
+          <span class="tag tag-lg">Python</span>
+          <span class="tag tag-lg">C</span>
+          <span class="tag tag-lg">JavaScript</span>
         </div>
-        <div class="resume-content">
-            <div class="resume-preview">
-                <div class="resume-header">
-                    <div class="resume-name">Bhargav Indimandala</div>
-                    <div class="resume-title">Aspiring Software Developer</div>
-                    <div class="resume-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>bhargavchowdhary18@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 6303266963</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="resume-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">🎓</div>
-                        <div class="highlight-text">
-                            <h4>Academic Excellence</h4>
-                            <p>983/1000 marks in Intermediate (TSBIE)</p>
-                        </div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">💻</div>
-                        <div class="highlight-text">
-                            <h4>Technical Skills</h4>
-                            <p>Java, Python, C, Android Development, Web Tech</p>
-                        </div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">🚀</div>
-                        <div class="highlight-text">
-                            <h4>Active Projects</h4>
-                            <p>InvenEase, Student Management System, Portfolio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="resume-actions">
-                <div class="action-card download-card">
-                    <div class="action-icon">📥</div>
-                    <div class="action-title">Download Resume</div>
-                    <div class="action-description">
-                        Get the complete PDF version of my resume with detailed information about my education, skills, and projects.
-                    </div>
-                    <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" download="Bhargav_Indimandala_Resume.pdf" target="_blank" class="download-btn">
-                        <i class="fas fa-download"></i>
-                        Download PDF
-                    </a>
-                </div>
-                
-                <div class="action-card">
-                    <div class="action-icon">👁️</div>
-                    <div class="action-title">Quick View</div>
-                    <div class="action-description">
-                        Preview my resume online before downloading.
-                    </div>
-                    <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" target="_blank" class="view-btn">
-                        <i class="fas fa-eye"></i>
-                        View Online
-                    </a>
-                </div>
-                
-                <div class="resume-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Skills</div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks &amp; platforms</h3>
+        <div class="tag-row">
+          <span class="tag tag-lg">Flask</span>
+          <span class="tag tag-lg">Android</span>
+          <span class="tag tag-lg">SQLite</span>
+          <span class="tag tag-lg">HTML / CSS</span>
         </div>
+      </div>
+      <div class="skill-group">
+        <h3>Core CS</h3>
+        <div class="tag-row">
+          <span class="tag tag-lg">Data Structures &amp; Algorithms</span>
+          <span class="tag tag-lg">OOP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools</h3>
+        <div class="tag-row">
+          <span class="tag tag-lg">Git</span>
+          <span class="tag tag-lg">GitHub</span>
+          <span class="tag tag-lg">VS Code</span>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-        <!-- Contact Section - Futuristic Form -->
-        <section class="section" id="contact">
-            <div class="contact-container">
-                <div class="section-title">
-                    <h2 class="neon-text">INITIATE_CONTACT.sh</h2>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-form-container">
-                        <div class="holographic-form">
-                            <form class="contact-form">
-                                <div class="form-group">
-                                    <input type="text" id="name" name="name" required>
-                                    <label for="name">Your Name</label>
-                                    <div class="form-line"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" id="email" name="email" required>
-                                    <label for="email">Email Address</label>
-                                    <div class="form-line"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="subject" name="subject" required>
-                                    <label for="subject">Subject</label>
-                                    <div class="form-line"></div>
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="message" name="message" required></textarea>
-                                    <label for="message">Your Message</label>
-                                    <div class="form-line"></div>
-                                </div>
-                                <button type="submit" class="submit-btn">
-                                    <span>Send Message</span>
-                                    <div class="btn-effect"></div>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="contact-info">
-                        <div class="info-card">
-                            <div class="info-icon">📍</div>
-                            <div class="info-text">
-                                <h4>Location</h4>
-                                <p>Khammam, Telangana</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">📧</div>
-                            <div class="info-text">
-                                <h4>Email</h4>
-                                <p>bhargavchowdhary18@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">📱</div>
-                            <div class="info-text">
-                                <h4>Phone</h4>
-                                <p>+91 6303266963</p>
-                            </div>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://linkedin.com/in/bhargav-indimandala-9718b0324" target="_blank" class="social-link">
-                                <div class="social-icon">💼</div>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://github.com/Bhargav-indimandala" target="_blank" class="social-link">
-                                <div class="social-icon">🐙</div>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- ABOUT / EDUCATION -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <p class="eyebrow">// about</p>
+      <h2>Education &amp; background</h2>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="about-grid">
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-when">2024 — Present</div>
+          <div class="edu-what">
+            <h3>Parul University (PIET)</h3>
+            <p>B.Tech, Computer Science &amp; Engineering · CGPA 8.71 (Sem 4)</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-when">2022 — 2024</div>
+          <div class="edu-what">
+            <h3>Sri C.V. Raman Jr. College</h3>
+            <p>Intermediate · 983/1000 — Top 1%</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-when">2021 — 2022</div>
+          <div class="edu-what">
+            <h3>Saint Therese High School</h3>
+            <p>SSC · 9.7 CGPA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-side">
+        <div class="info-block">
+          <h3>Achievements</h3>
+          <ul>
+            <li>Top 1% in Intermediate (983/1000)</li>
+            <li>9.7 CGPA in SSC</li>
+            <li>3 global certifications (Cloud &amp; Tech)</li>
+            <li>Participated in 2+ hackathons</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h3>Currently</h3>
+          <p>Based in Khammam, Telangana. Open to internships and junior developer roles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-head">
+      <p class="eyebrow">// contact</p>
+      <h2>Let's talk</h2>
+    </div>
+
+    <div class="contact-grid">
+      <p class="contact-lede">
+        Have an opportunity, project, or just want to say hi? I'm quick to reply.
+      </p>
+      <div class="contact-cards">
+        <a class="contact-card" href="mailto:bhargavchowdhary18@gmail.com">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">bhargavchowdhary18@gmail.com</span>
+        </a>
+        <a class="contact-card" href="tel:+916303266963">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+91 63032 66963</span>
+        </a>
+        <a class="contact-card" href="https://linkedin.com/in/bhargav-indimandala-9718b0324" target="_blank" rel="noopener">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">/in/bhargav-indimandala</span>
+        </a>
+        <a class="contact-card" href="https://github.com/Bhargav-indimandala" target="_blank" rel="noopener">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">/Bhargav-indimandala</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Built by Bhargav Indimandala · <a href="assests/resume/Bhargav_Indimandala_Resume.pdf" target="_blank">Resume ↗</a></p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
